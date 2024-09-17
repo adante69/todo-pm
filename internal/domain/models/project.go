@@ -1,7 +1,7 @@
 package models
 
 type Project struct {
-	name        string
-	description string
-	id          uint64
+	Id          uint64
+	Name        string
+	Description string
 }

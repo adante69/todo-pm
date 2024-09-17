@@ -10,7 +10,7 @@ import (
 
 func main() {
 	db, err := sql.Open("postgres", "host=db user=admin"+
-		" password=admin dbname=new_db2 sslmode=disable")
+		" password=admin dbname=new_db3 sslmode=disable")
 	if err != nil {
 		log.Fatalf("Ошибка подключения к БД: %v", err)
 	}

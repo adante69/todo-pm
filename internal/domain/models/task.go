@@ -1,6 +1,6 @@
 package models
 
 type Task struct {
-	projectId uint64
-	taskId    uint64
+	ProjectId uint64
+	TaskId    uint64
 }

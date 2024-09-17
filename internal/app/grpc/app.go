@@ -5,6 +5,8 @@ import (
 	"google.golang.org/grpc"
 	"log/slog"
 	"net"
+	pmgrpc "todo-project/internal/grpc/ProjectManager"
+	manager "todo-project/internal/service/ProjectManager"
 )
 
 type App struct {
@@ -13,9 +15,10 @@ type App struct {
 	port       int
 }
 
-func New(log *slog.Logger, pm *taskManager.TaskManager, port int) *App {
+func New(log *slog.Logger, tm *manager.TaskManager, pm *manager.ProjectManager, um *manager.UsersManager, port int) *App {
 	gRPCServer := grpc.NewServer()
-	tmsgrpc.Register(gRPCServer, pm)
+	pmgrpc.Register(gRPCServer, tm, pm, um)
+
 	return &App{
 		log:        log,
 		gRPCServer: gRPCServer,

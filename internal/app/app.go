@@ -3,6 +3,7 @@ package app
 import (
 	"log/slog"
 	grpcapp "todo-project/internal/app/grpc"
+	"todo-project/internal/service/ProjectManager"
 	"todo-project/internal/storage/postgres"
 )
 
@@ -15,8 +16,18 @@ func New(
 	grpcPort int,
 	dsn string,
 ) *App {
-	storage, err := postgres.New(dsn)
+	storage, err := postgres.NewStorage(dsn)
 	if err != nil {
 		panic(err)
+	}
+
+	pm := ProjectManager.NewProjectManager(log, storage, storage, storage)
+	tm := ProjectManager.NewTaskManager(log, storage, storage, storage)
+	um := ProjectManager.NewUsersManager(log, storage, storage, storage)
+
+	grpcServer := grpcapp.New(log, tm, pm, um, grpcPort)
+
+	return &App{
+		GRPCServer: grpcServer,
 	}
 }

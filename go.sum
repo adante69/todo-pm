@@ -1,3 +1,9 @@
+github.com/adante69/todo-protos v0.0.4 h1:xBn9jm1hcHrdH57hO9b+yp6SpWMMC2HOOWOdR9SnB28=
+github.com/adante69/todo-protos v0.0.4/go.mod h1:GlStZlQYfokvtYiNqezQ0bwTpytw1BuuW1EmqE2RnyM=
+github.com/adante69/todo-protos v0.0.5 h1:Kc/v639KVFkZmZ5i5M3xrW53YnkqUYqyPdptoBLlZpQ=
+github.com/adante69/todo-protos v0.0.5/go.mod h1:GlStZlQYfokvtYiNqezQ0bwTpytw1BuuW1EmqE2RnyM=
+github.com/adante69/todo-protos v0.0.6 h1:9RE/3d05JQjEwj6y/1hRAoQWyh9qyahIzLpmYxFqyv0=
+github.com/adante69/todo-protos v0.0.6/go.mod h1:GlStZlQYfokvtYiNqezQ0bwTpytw1BuuW1EmqE2RnyM=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=

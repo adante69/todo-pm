@@ -8,4 +8,4 @@ server:
     timeout: 5s
 
 database:
-  dsn: "host=db user=admin password=admin dbname=new_db2 port=5432 sslmode=disable TimeZone=Europe/Moscow"
+  dsn: "host=db user=admin password=admin dbname=new_db3 port=5432 sslmode=disable TimeZone=Europe/Moscow"
