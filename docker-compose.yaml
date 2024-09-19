@@ -3,11 +3,11 @@ services:
   app:
     build: .
     depends_on:
-      - db
+      - db-pm
     environment:
       - CONFIG_PATH=./config/config.yaml
 
-  db:
+  db-pm:
     container_name: postgres_pm
     image: postgres:16-alpine
     environment:
@@ -21,7 +21,7 @@ services:
   migrations:
     build: .
     depends_on:
-      - db
+      - db-pm
     command: ./migrator -migrate
 
 

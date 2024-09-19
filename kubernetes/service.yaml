@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-pm-service
+spec:
+  selector:
+    app: todo-pm
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 50053
+  type: ClusterIP

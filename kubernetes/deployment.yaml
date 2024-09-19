@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-pm-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo-pm
+  template:
+    metadata:
+      labels:
+        app: todo-pm
+    spec:
+      containers:
+        - name: todo-pm-app
+          image: daniiarsherniiazov22/todo-pm-app-1:latest
+          ports:
+            - containerPort: 50053 # Порт для gRPC
