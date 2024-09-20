@@ -10,6 +10,14 @@ type Config struct {
 	Env      string         `mapstructure:"env"`
 	Server   ServerConfig   `mapstructure:"server"`
 	Database DatabaseConfig `mapstructure:"database"`
+	Redis    RedisConfig    `mapstructure:"redis"`
+}
+
+type RedisConfig struct {
+	Host     string `mapstructure:"host"`
+	Port     string `mapstructure:"port"`
+	Password string `mapstructure:"password"`
+	DB       int    `mapstructure:"db"`
 }
 
 type ServerConfig struct {
@@ -45,6 +53,7 @@ func MustLoad() *Config {
 		Env:      config.Env,
 		Server:   config.Server,
 		Database: config.Database,
+		Redis:    config.Redis,
 	}
 
 }

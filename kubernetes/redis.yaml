@@ -1,0 +1,34 @@
+# redis-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-pm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-pm
+  template:
+    metadata:
+      labels:
+        app: redis-pm
+    spec:
+      containers:
+        - name: redis-pm
+          image: redis:7.0-alpine # Используем Redis с Alpine Linux
+          ports:
+            - containerPort: 6379
+---
+# redis-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-pm
+spec:
+  selector:
+    app: redis-pm
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+  type: ClusterIP

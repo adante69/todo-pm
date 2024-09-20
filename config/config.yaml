@@ -9,3 +9,9 @@ server:
 
 database:
   dsn: "host=db-pm user=admin password=admin dbname=new_db3 port=5432 sslmode=disable TimeZone=Europe/Moscow"
+
+redis:
+  host: "redis-pm"
+  port: 6379
+  password: ""  # If no password is set, leave this empty
+  db: 0         # Select the Redis database (default is 0)

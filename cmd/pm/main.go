@@ -1,11 +1,14 @@
 package main
 
 import (
+	"context"
+	"fmt"
 	"log/slog"
 	"os"
 	"os/signal"
 	"todo-project/internal/app"
 	"todo-project/internal/config"
+	"todo-project/internal/redis"
 )
 
 const (
@@ -21,6 +24,18 @@ func main() {
 
 	log.Info("starting server")
 
+	rdb := redis.NewRedisClient(cfg.Redis.Host, cfg.Redis.Port, cfg.Redis.Password, cfg.Redis.DB)
+	err := rdb.Set(context.Background(), "key", "value", 0).Err()
+	if err != nil {
+		log.Info("Failed to set key in Redis", slog.String("error", err.Error()))
+	}
+	val, err := rdb.Get(context.Background(), "key").Result()
+	if err != nil {
+		log.Info("Failed to get key from Redis", slog.String("error", err.Error()))
+	}
+	fmt.Println("key:", val)
+
+	// Initialize the application
 	application := app.New(log, cfg.Server.GRPC.Port, cfg.Database.DSN)
 	go application.GRPCServer.MustRun()
 
